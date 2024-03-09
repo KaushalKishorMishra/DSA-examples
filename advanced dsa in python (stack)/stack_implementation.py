@@ -4,10 +4,6 @@ class Stack:
     def __init__(self):
         self.stack = []
 
-    # method to push elements to the stack
-    def push(self, data):
-        self.stack.append(data)
-
     # method to check wether the stack is empty or not
     def is_empty(self):
         return len(self.stack) == 0
@@ -15,6 +11,10 @@ class Stack:
     # method to get the size of the stack
     def size(self):
         return len(self.stack)
+
+    # method to push elements to the stack
+    def push(self, data):
+        self.stack.append(data)
 
     # method to pop elements from the stack
     def pop(self):
@@ -38,7 +38,7 @@ stack = Stack()
 # checking the size of the stack
 print(f"Stack is of size: {stack.size()}")
 # pushing elements to the stack
-stack.push(1)
+stack.push("Kaushal Kishor Mishra")
 stack.push(2)
 stack.push(3)
 stack.push(4)
