@@ -38,7 +38,7 @@ stack = Stack()
 # checking the size of the stack
 print(f"Stack is of size: {stack.size()}")
 # pushing elements to the stack
-stack.push("Kaushal Kishor Mishra")
+stack.push(1)
 stack.push(2)
 stack.push(3)
 stack.push(4)
