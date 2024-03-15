@@ -1,70 +1,60 @@
-# stack implementation
 class Stack:
-    # constructor for the stack class
-    def __init__(self):
+    def __init__(self, size):
         self.stack = []
+        self.size = size
 
-    # method to check wether the stack is empty or not
     def is_empty(self):
         return len(self.stack) == 0
 
-    # method to get the size of the stack
-    def size(self):
-        return len(self.stack)
+    def is_full(self):
+        return len(self.stack) == self.size
 
-    # method to push elements to the stack
-    def push(self, data):
-        self.stack.append(data)
+    def push(self):
+        if self.is_full():
+            print("Stack is Full!!!!")
+        if not self.is_full():
+            item = int(input("Enter the element:"))
+            self.stack.append(item)
+            print(item, "is added to the Stack!")
 
-    # method to pop elements from the stack
     def pop(self):
         if self.is_empty():
-            return "Stack is empty"
-        return self.stack.pop()
+            print("Stack is Empty!!!")
+        if not self.is_empty():
+            print(f"Popped Element: {self.stack.pop()}")
 
-    # method to get the top element of the stack
     def peek(self):
         if self.is_empty():
-            return "Stack is empty"
-        return self.stack[-1]
+            print("Stack is Empty!!!")
+        if not self.is_empty():
+            print(f"Top element:{self.stack[-1]}")
 
-    # method to print the stack
     def __str__(self):
+        if self.is_empty():
+            return "Stack is Empty!!!"
         return str(self.stack)
 
 
-# create a stack object
-stack = Stack()
-# checking the size of the stack
-print(f"Stack is of size: {stack.size()}")
-# pushing elements to the stack
-stack.push(1)
-stack.push(2)
-stack.push(3)
-stack.push(4)
-stack.push(5)
-# checking wether the stack is empty or not
-print(f"Stack is empty: {stack.is_empty()}")
-# checking the size of the stack
-print(f"Stack is of size: {stack.size()}")
-# checking the top element of the stack
-print(f"Stack peek: {stack.peek()}")
-# printing the stack
-print(f"Stack: {stack}")
-# popping elements from the stack
-stack.pop()
-print(f"Stack is of size: {stack.size()}")
-print(f"Stack peek: {stack.peek()}")
-print(f"Stack: {stack}")
-stack.pop()
-print(f"Stack is of size: {stack.size()}")
-print(f"Stack peek: {stack.peek()}")
-print(f"Stack: {stack}")
-stack.pop()
-print(f"Stack is of size: {stack.size()}")
-print(f"Stack peek: {stack.peek()}")
-print(f"Stack: {stack}")
-stack.pop()
-print(f"Stack is of size: {stack.size()}")
-print(f"Stack peek: {stack.peek()}")
-print(f"Stack: {stack}")
+# driver function
+def main():
+    size = int(input("Enter the size of Stack:"))
+    stack = Stack(size)
+    while True:
+        print("Select the Operation:\n1.Push\t2.Pop\t3.Peek\t4.Display\t5.Quit")
+        choice = int(input())
+        if choice == 1:
+            stack.push()
+        elif choice == 2:
+            stack.pop()
+        elif choice == 3:
+            stack.peek()
+        elif choice == 4:
+            print("Stack:", stack)
+        elif choice == 5:
+            break
+        else:
+            print("Invalid Option!!!")
+
+
+# test cases
+main()
